@@ -172,12 +172,7 @@ contract SupplyChain is
         string memory _productNotes
     ) public {
         // Add the new item as part of Harvest
-
-        // Increment sku
-        sku = sku + 1;
-        // Emit the appropriate event
-        emit Harvested(_upc);
-        items[sku] = Item({
+        items[_upc] = Item({
             sku: sku,
             upc: upc,
             ownerID: _originFarmerID, // Metamask-Ethereum address of the current owner as the product moves through 8 stages
@@ -194,6 +189,10 @@ contract SupplyChain is
             retailerID: address(0), // Metamask-Ethereum address of the Retailer
             consumerID: address(0) // Metamask-Ethereum address of the Consumer
         });
+        // Increment sku
+        sku = sku + 1;
+        // Emit the appropriate event
+        emit Harvested(_upc);
     }
 
     // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
@@ -380,7 +379,7 @@ contract SupplyChain is
         distributorID = items[_upc].distributorID;
         retailerID = items[_upc].retailerID;
         consumerID = items[_upc].consumerID;
-        
+
         return (
             itemSKU,
             itemUPC,

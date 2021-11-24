@@ -50,7 +50,7 @@ contract('SupplyChain', function(accounts) {
         
         // Watch the emitted event Harvested()
         var event = supplyChain.Harvested()
-        await  supplyChain.Harvested((err, res) => {
+        await supplyChain.Harvested((err, res) => {
             eventEmitted = true
         })
 
