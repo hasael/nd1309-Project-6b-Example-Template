@@ -149,8 +149,6 @@ contract('SupplyChain', function (accounts) {
     it("Testing smart contract function buyItem() that allows a distributor to buy coffee", async () => {
         const supplyChain = await SupplyChain.deployed()
         await supplyChain.addDistributor(distributorID)
-        let balanceOfDistributorBeforeTransaction = await web3.eth.getBalance(distributorID);
-        console.log(balanceOfDistributorBeforeTransaction);
         // Declare and Initialize a variable for event
         var eventEmitted = false
 
@@ -160,12 +158,7 @@ contract('SupplyChain', function (accounts) {
         })
 
         // Mark an item as Sold by calling function buyItem()
-        let balance = web3.utils.toWei("3", "ether");
-        await supplyChain.buyItem(upc, { from: distributorID, value: balance })
-
-        let balanceOfDistributorAfterTransaction = await web3.eth.getBalance(distributorID);
-
-        console.log(balanceOfDistributorAfterTransaction);
+        await supplyChain.buyItem(upc, { from: distributorID, value: productPrice });
 
         const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc)
