@@ -1,3 +1,17 @@
+# Deployed Contract
+
+- Contract deployed at 0x7858f43f96EaEcb6882C16f262c1077b5Cb5B526 [here](https://rinkeby.etherscan.io/address/0x7858f43f96eaecb6882c16f262c1077b5cb5b526)
+
+# Diagrams
+## Activity diagram
+![Activity Diagram](diagrams/Activity_Diagram.png)
+## Sequence diagram
+![Sequence Diagram](diagrams/Sequence_Diagram.png)
+## Class diagram
+![Class Diagram](diagrams/Class_Diagram.png)
+## State diagram
+![State Diagram](diagrams/State_Diagram.png)
+
 # Supply chain & data auditing
 
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
