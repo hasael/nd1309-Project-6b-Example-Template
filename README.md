@@ -1,6 +1,35 @@
-# Deployed Contract
+# Deployment
 
 - Contract deployed at 0x7858f43f96EaEcb6882C16f262c1077b5Cb5B526 [here](https://rinkeby.etherscan.io/address/0x7858f43f96eaecb6882c16f262c1077b5cb5b526)
+- IPF website https://ipfs.io/ipfs/QmXfH5V6sXTwVoHg4CdUamme53sj8Ume1EQrmNDG9rkCUp/
+
+# Libraries
+| Library      | Version |
+| ----------- | ----------- |
+| Solidity      | 0.8.10       |
+| lite-server   | 2.4.0        |
+| web3   | 1.6.1        |
+| ganache-cli   | 6.12.2        |
+
+# IPFS
+Deployed main webpage files and json contracts on a flat directory. 
+The root directory hash is used as the webpage link. 
+Files:
+- index.html
+- app.js
+- truffle-contract.js
+- web3.min.js
+- web3.min.js.map
+- style.css
+- SupplyChain.json
+- Ownable.json
+- DistributorRole.json
+- FarmerRole.json
+- RetailerRole.json
+- ConsumerRole.json
+
+# Notes
+All supply chain functions are implemented. Each actor can see their latest transaction hash and the transaction history from client side (they can see only transactions they have initiated from their own client). Transaction history feature is implemented and tested from local ganache.
 
 # Diagrams
 ## Activity diagram
