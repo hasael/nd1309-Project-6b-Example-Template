@@ -162,7 +162,7 @@ contract SupplyChain is
         string memory _originFarmLatitude,
         string memory _originFarmLongitude,
         string memory _productNotes
-    ) public {
+    ) public onlyFarmer {
         // Add the new item as part of Harvest
         items[_upc] = Item({
             sku: sku,
@@ -194,6 +194,7 @@ contract SupplyChain is
         harvested(_upc)
         // Call modifier to verify caller of this function
         onlyFarmer
+        verifyCaller(items[_upc].ownerID) 
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Processed;
@@ -208,6 +209,7 @@ contract SupplyChain is
         processed(_upc)
         // Call modifier to verify caller of this function
         onlyFarmer
+        verifyCaller(items[_upc].ownerID) 
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Packed;
@@ -222,6 +224,7 @@ contract SupplyChain is
         packed(_upc)
         // Call modifier to verify caller of this function
         onlyFarmer
+        verifyCaller(items[_upc].ownerID) 
     {
         // Update the appropriate fields
         items[_upc].itemState = State.ForSale;
@@ -263,6 +266,7 @@ contract SupplyChain is
         sold(_upc)
         // Call modifier to verify caller of this function
         onlyDistributor
+        verifyCaller(items[_upc].ownerID) 
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Shipped;
